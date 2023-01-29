@@ -1,7 +1,39 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [];
+// Componentes
+import { ListadoMascotasComponent } from './components/listado-mascotas/listado-mascotas.component';
+import { AgregarEditarMascotaComponent } from './components/agregar-editar-mascota/agregar-editar-mascota.component';
+import { VerMascotaComponent } from './components/ver-mascota/ver-mascota.component';
+
+const routes: Routes = [
+  {
+    path:'',
+    redirectTo: 'listMascotas',
+    pathMatch: 'full'
+  },
+  {
+    path:'listMascotas',
+    component: ListadoMascotasComponent
+  },
+  {
+    path:'agregarMascota',
+    component: AgregarEditarMascotaComponent
+  },
+  {
+    path:'editarMascota/:id',
+    component: AgregarEditarMascotaComponent
+  },
+  {
+    path:'verMascota/:id',
+    component: VerMascotaComponent
+  },
+  {
+    path:'**',
+    redirectTo: 'listMascotas',
+    pathMatch: 'full'
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
