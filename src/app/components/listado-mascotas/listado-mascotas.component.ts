@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Mascotas } from 'src/app/interfaces/mascotas';
@@ -22,13 +23,34 @@ export class ListadoMascotasComponent implements AfterViewInit {
 
   displayedColumns: string[] = ['nombre','edad','raza','color','peso','acciones'];
   dataSource = new MatTableDataSource<Mascotas>(listMascotas);
+  loading: boolean = false;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
+  constructor(private _snackBar: MatSnackBar) {}
+
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  eliminarMascota() {
+
+    this.loading = true;
+
+    setTimeout(() => {
+
+      this.loading = false;
+
+      this._snackBar.open('La mascota fue eliminada con exito', '', {
+        duration: 5000, //miliseconds
+        horizontalPosition: 'right'
+      });   
+
+    }, 3000);
+
+    
   }
 
   ngAfterViewInit() {
