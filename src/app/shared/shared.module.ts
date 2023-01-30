@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 
 // Angular Material
 import {MatTableModule} from '@angular/material/table';
@@ -13,6 +14,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 // Componentes
 import { SpinnerComponent } from './spinner/spinner.component';
@@ -34,6 +36,8 @@ import { SpinnerComponent } from './spinner/spinner.component';
     MatCardModule,
     MatSnackBarModule,
     MatProgressBarModule,
+    MatGridListModule,
+    ReactiveFormsModule
   ],
   exports: [
     MatTableModule,
@@ -47,6 +51,8 @@ import { SpinnerComponent } from './spinner/spinner.component';
     MatCardModule,
     MatSnackBarModule,
     MatProgressBarModule,
+    MatGridListModule,
+    ReactiveFormsModule,
     SpinnerComponent
   ]
 })
