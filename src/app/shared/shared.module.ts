@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 // Angular Material
 import {MatTableModule} from '@angular/material/table';
@@ -37,7 +38,8 @@ import { SpinnerComponent } from './spinner/spinner.component';
     MatSnackBarModule,
     MatProgressBarModule,
     MatGridListModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   exports: [
     MatTableModule,
